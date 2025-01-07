@@ -150,6 +150,7 @@ await this._userService.updateUser(user._id, { isVerified: true });
       res.json(users);
     } catch (error: unknown) {
       if (error instanceof Error) {
+        console.log("Error in listUsers:", error);
         res.status(HTTP_STATUS_CODES.BAD_REQUEST).json({ error: MESSAGES.UNEXPECTED_ERROR });
       } else {
         res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json({ error: MESSAGES.UNEXPECTED_ERROR });
